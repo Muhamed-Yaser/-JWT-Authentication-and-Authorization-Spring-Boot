@@ -1,5 +1,6 @@
 package com.example.auth_jwt_spring_boot.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -30,6 +31,7 @@ public class User implements UserDetails {
     @Column(nullable = false,unique = true)
     private String email;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Column(nullable = false)
     private String password;
 
